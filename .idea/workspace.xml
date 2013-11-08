@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1e3fc8d-708f-43e3-8fb2-451205b3b938" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tests/dsl_basic_aspects_spec.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSL/dsl_aop_aspect.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DSL/dsl_aop_pointcut.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb" afterPath="$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DSL/dsl_aop_core.rb" afterPath="$PROJECT_DIR$/DSL/dsl_aop_core.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TP3-TADP-DSL.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383878906880" ignored="false" />
+    <file path="/Dummy.txt" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383940094524" ignored="false" />
     <file path="/Aop_Dsl_spec.rb" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383936758846" ignored="false" />
-    <file path="/dsl_aop_core.rb" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383939156644" ignored="false" />
+    <file path="/dsl_aop_core.rb" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383942147021" ignored="false" />
     <file path="/a.dummy" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383844675315" ignored="false" />
     <file path="/dsl_basic_aspects_spec.rb" changelist="b1e3fc8d-708f-43e3-8fb2-451205b3b938" time="1383940037292" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,10 +34,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dsl_aop_core.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dsl_aop_core.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_core.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="48" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.0">
+            <state line="7" column="30" selection-start="195" selection-end="195" vertical-scroll-proportion="0.32963988">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dsl_aop_method_missing_&amp;_advice.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_method_missing_&amp;_advice.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="3" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dsl_aop_aspect.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_aspect.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="3" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dsl_aop_pointcut.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_pointcut.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="5" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -63,16 +91,16 @@
       <file leaf-file-name="Aop_Dsl_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="28" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.0">
+            <state line="199" column="5" selection-start="3016" selection-end="3016" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dsl_basic_aspects_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dsl_basic_aspects_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/dsl_basic_aspects_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="14" selection-start="1878" selection-end="1878" vertical-scroll-proportion="1.4005235">
+            <state line="93" column="14" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,9 +125,12 @@
     <option name="changedFiles">
       <list>
         <option value="$APPLICATION_HOME_DIR$/rubystubs20/basic_object.rb" />
-        <option value="$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb" />
-        <option value="$PROJECT_DIR$/DSL/dsl_aop_core.rb" />
         <option value="$PROJECT_DIR$/Tests/dsl_basic_aspects_spec.rb" />
+        <option value="$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb" />
+        <option value="$PROJECT_DIR$/DSL/dsl_aop_pointcut.rb" />
+        <option value="$PROJECT_DIR$/DSL/dsl_aop_aspect.rb" />
+        <option value="$PROJECT_DIR$/DSL/dsl_aop_method_missing_&amp;_advice.rb" />
+        <option value="$PROJECT_DIR$/DSL/dsl_aop_core.rb" />
       </list>
     </option>
   </component>
@@ -209,7 +240,7 @@
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="RSpec.dsl_basic_aspects_spec">
+  <component name="RunManager" selected="RSpec.All specs in: Tests">
     <configuration default="false" name="Aop_Dsl_spec" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="TP3-TADP-DSL" />
@@ -263,6 +294,36 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="All specs in: Tests" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="TP3-TADP-DSL" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$/Tests" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="JRUBY_OPTS" value="-X+O" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$PROJECT_DIR$/Tests" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="ALL_IN_FOLDER" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
@@ -336,14 +397,16 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="RSpec.Aop_Dsl_spec" />
       <item index="1" class="java.lang.String" itemvalue="RSpec.dsl_basic_aspects_spec" />
+      <item index="2" class="java.lang.String" itemvalue="RSpec.All specs in: Tests" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="RSpec.dsl_basic_aspects_spec" />
-        <item index="1" class="java.lang.String" itemvalue="RSpec.Aop_Dsl_spec" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="RSpec.All specs in: Tests" />
+        <item index="1" class="java.lang.String" itemvalue="RSpec.dsl_basic_aspects_spec" />
+        <item index="2" class="java.lang.String" itemvalue="RSpec.Aop_Dsl_spec" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +421,11 @@
       <created>1383878908388</created>
       <updated>1383878908388</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implementado el dsl">
+      <created>1383940098388</created>
+      <updated>1383940098388</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -427,7 +494,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replanteado el dsl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementado el dsl" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -442,6 +509,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Replanteado el dsl" />
+    <MESSAGE value="Implementado el dsl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -496,23 +564,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/dsl_basic_aspects_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="14" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/Aop_Dsl_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="28" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.0">
+        <state line="199" column="5" selection-start="3016" selection-end="3016" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_aspect.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="3" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_pointcut.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_method_missing_&amp;_advice.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="3" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DSL/dsl_aop_core.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="48" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/dsl_basic_aspects_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="14" selection-start="1878" selection-end="1878" vertical-scroll-proportion="1.4005235">
+        <state line="7" column="30" selection-start="195" selection-end="195" vertical-scroll-proportion="0.32963988">
           <folding />
         </state>
       </provider>

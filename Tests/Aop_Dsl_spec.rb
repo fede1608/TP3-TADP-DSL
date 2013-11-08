@@ -198,7 +198,6 @@ describe 'DSL Aspect' do
         }
       }
     }
-    p a.pointcut.clases
     a.class.should == Aspect
   end
 end
