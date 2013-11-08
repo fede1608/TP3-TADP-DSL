@@ -97,7 +97,7 @@ describe 'DSL Aspect' do
 
 
   it 'should Create Aspect' do
-    aspect = nuevo aspecto
+    aspect = crear aspecto
     aspect.class.should == Aspect
   end
 
@@ -111,7 +111,32 @@ describe 'DSL Aspect' do
   end
 
   it 'should create a pointcut' do
-    p= con punto_de_corte en
+    p= punto_de_corte
     p.class.should == Pointcut
+  end
+
+  it 'should work' do
+    a = crear aspecto {
+      punto_de_corte{
+        class_array_Foo_Bar
+        method_arity_6
+      }
+      advices{
+        antes{
+
+        }
+        despues{
+
+        }
+        en_vez_de{
+
+        }
+        cuando_haya_error{
+
+        }
+      }
+    }
+
+    a.class.should == Aspect
   end
 end

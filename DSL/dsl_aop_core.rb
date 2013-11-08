@@ -6,7 +6,7 @@ class  Object
     a.pointcut=pointcut
     a
   end
-  def nuevo(aspecto)
+  def crear(aspecto)
     aspecto
   end
 end
