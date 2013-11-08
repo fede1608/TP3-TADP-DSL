@@ -85,7 +85,7 @@ describe 'DSL Aspect' do
     end
 
     class Foo7
-      attr_accessor :joe,:lara
+      attr_accessor :joe7,:lara7
 
       def another
       end
@@ -102,7 +102,7 @@ describe 'DSL Aspect' do
     end
 
     class Bar7 < Foo7
-      attr_accessor :mar
+      attr_accessor :mar7
 
       def moisture
       end
@@ -162,7 +162,7 @@ describe 'DSL Aspect' do
       class_array [Foo7,Bar7]
       method_accessor true
     }
-    pc1.metodos.map{|m| m.name}.should include(:joe,:lara,:mar,:joe=,:lara=,:mar=)
+    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
     pc1.should have(6).metodos
 
 
@@ -170,12 +170,38 @@ describe 'DSL Aspect' do
       class_array [Foo7,Bar7]
       method_arity 1
     }
-    pointcut_and.metodos.map{|m| m.name}.should include(:joe=,:lara=,:mar=)
+    pointcut_and.metodos.map{|m| m.name}.should include(:joe7=,:lara7=,:mar7=)
     pointcut_and.should have(3).metodos
 
   end
 
+  it 'should OR 2 pointcuts' do
+    pc1=punto_de_corte{
+      class_array [Foo7,Bar7]
+      method_accessor true
+    }
+    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    pc1.should have(6).metodos
+    pointcut_or =or_punto_de_corte{
+      class_array [Foo7,Bar7]
+      method_arity 1
+    }
+    pointcut_or.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    pointcut_or.metodos.map{|m| m.name}.should include(:tomastee,:other,:joe7=,:lara7=,:mar7=)
+    pointcut_or.should have(8).metodos
+  end
 
+  it 'should Negate(NOT) a pointcut' do
+    pc1=(Pointcut_Builder.new.class_array([Foo7,Bar7]).method_accessor(true).build)
+    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    pc1.should have(6).metodos
+    pointcut_not=not_punto_de_corte{
+      class_array([Foo7,Bar7])
+      method_accessor(true)
+    }
+    #pointcut_not.metodos.map{|m| m.name}.should include(:tomastee,:other,:not_true,:not_false,:not_a_Foo_method,:another,:moisture,:multiply)
+    pointcut_not.metodos.map{|m| m.name}.should_not include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+  end
 
   it 'should work' do
     a = crear aspecto {

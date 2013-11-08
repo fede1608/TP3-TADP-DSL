@@ -13,7 +13,7 @@ class Object
   end
   def not_punto_de_corte(&bloque)
     punto_de_corte(&bloque)
-    getAspect.pointcut = getAspect.pointcut.not
+    getAspect.pointcut= getAspect.pointcut.not
   end
   def generic_PC(met,&bloque)
     leftPC=getAspect.pointcut
