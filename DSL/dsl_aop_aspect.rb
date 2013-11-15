@@ -1,12 +1,15 @@
 class Object
-  def aspecto(&bloque)
-    bloque.call unless bloque.nil?
-    getAspect
-  end
-  def crear(aspecto)
-    aspecto
-  end
-  def getAspect
-    @dsl_aspecto ||= Aspect.new
-  end
+    def aspecto(&bloque)
+      asp=DslAspect.new
+      asp.instance_eval(&bloque) unless bloque.nil?
+      asp.getAspect
+    end
+    def crear(aspecto)
+      aspecto
+    end
+end
+class DslAspect
+    def getAspect
+      @dsl_aspecto ||= Aspect.new
+    end
 end

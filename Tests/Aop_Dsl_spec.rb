@@ -2,6 +2,7 @@ require 'rspec'
 require_relative('../DSL/dsl_aop_core')
 
 
+
 describe 'DSL Aspect' do
 
   before :each do
@@ -139,68 +140,77 @@ describe 'DSL Aspect' do
     aspect.class.should == Aspect
   end
 
-  it 'should create an empty pointcut' do
-    p= punto_de_corte
-    p.class.should == Pointcut
-  end
 
   it 'should return especific pointcut' do
-    p= punto_de_corte{
+    aspect=crear aspecto{
+    punto_de_corte{
       class_array [NotFoo,NotFoo2]
     }
-    p.class.should == Pointcut
-    p.metodos.map{|m| m.name}.should include(:not_a_Foo_method)
-    p.should have(1).metodos
-    p.clases.should include(NotFoo,NotFoo2)
-    p.should have(2).clases
+    }
+    aspect.pointcut.class.should == Pointcut
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:not_a_Foo_method)
+    aspect.pointcut.should have(1).metodos
+    aspect.pointcut.clases.should include(NotFoo,NotFoo2)
+    aspect.pointcut.should have(2).clases
   end
 
 
 
   it 'should And Pointcut' do
-    pc1= punto_de_corte{
+    aspect=crear aspecto{
+    punto_de_corte{
       class_array [Foo7,Bar7]
       method_accessor true
     }
-    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
-    pc1.should have(6).metodos
+    #pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    #pc1.should have(6).metodos
 
 
     pointcut_and = and_punto_de_corte{
       class_array [Foo7,Bar7]
       method_arity 1
     }
-    pointcut_and.metodos.map{|m| m.name}.should include(:joe7=,:lara7=,:mar7=)
-    pointcut_and.should have(3).metodos
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(3).metodos
 
   end
 
   it 'should OR 2 pointcuts' do
-    pc1=punto_de_corte{
+    aspect=crear aspecto{
+    punto_de_corte{
       class_array [Foo7,Bar7]
       method_accessor true
     }
-    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
-    pc1.should have(6).metodos
-    pointcut_or =or_punto_de_corte{
+
+    or_punto_de_corte{
       class_array [Foo7,Bar7]
       method_arity 1
     }
-    pointcut_or.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
-    pointcut_or.metodos.map{|m| m.name}.should include(:tomastee,:other,:joe7=,:lara7=,:mar7=)
-    pointcut_or.should have(8).metodos
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:tomastee,:other,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(8).metodos
   end
 
   it 'should Negate(NOT) a pointcut' do
-    pc1=(Pointcut_Builder.new.class_array([Foo7,Bar7]).method_accessor(true).build)
-    pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
-    pc1.should have(6).metodos
-    pointcut_not=not_punto_de_corte{
+    aspect=crear aspecto{
+    punto_de_corte{
       class_array([Foo7,Bar7])
       method_accessor(true)
     }
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(6).metodos
+
+    aspect=crear aspecto{
+    not_punto_de_corte{
+      class_array([Foo7,Bar7])
+      method_accessor(true)
+    }
+    }
     #pointcut_not.metodos.map{|m| m.name}.should include(:tomastee,:other,:not_true,:not_false,:not_a_Foo_method,:another,:moisture,:multiply)
-    pointcut_not.metodos.map{|m| m.name}.should_not include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.metodos.map{|m| m.name}.should_not include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
   end
 
   it 'should work' do

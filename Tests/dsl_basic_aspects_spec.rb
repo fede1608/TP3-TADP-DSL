@@ -1,6 +1,7 @@
 require 'rspec'
 require_relative '../DSL/dsl_aop_core'
 
+
 describe 'basic aspects' do
 
   before :each do
