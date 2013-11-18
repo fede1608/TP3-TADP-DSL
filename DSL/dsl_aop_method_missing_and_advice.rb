@@ -1,5 +1,4 @@
-module Dsl_Aop
-  refine Object do
+  class DslAspect
     def method_missing(symbol, *args, &bloque)
       met=symbol.to_s
       if (met.start_with?('class','method'))
@@ -16,5 +15,3 @@ module Dsl_Aop
       bloque.call
     end
   end
-
-end
