@@ -158,23 +158,41 @@ describe 'DSL Aspect' do
 
   it 'should And Pointcut' do
     aspect=crear aspecto{
-    punto_de_corte{
-      class_array [Foo7,Bar7]
-      method_accessor true
-    }
-    #pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
-    #pc1.should have(6).metodos
+      punto_de_corte{
+        class_array [Foo7,Bar7]
+        method_accessor true
+      }
+      #pc1.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+      #pc1.should have(6).metodos
 
 
-    pointcut_and = and_punto_de_corte{
-      class_array [Foo7,Bar7]
-      method_arity 1
-    }
+      pointcut_and = and_punto_de_corte{
+        class_array [Foo7,Bar7]
+        method_arity 1
+      }
+      #pointcut_and.metodos.map{|m| m.name}.should include(:joe7=,:lara7=, :other, :mar7=, :tomastee)
     }
     aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7=,:lara7=,:mar7=)
     aspect.pointcut.should have(3).metodos
 
   end
+
+  it 'should And Pointcut reloaded' do
+    aspect=crear aspecto{
+      crear_punto_de_corte{
+        class_array [Foo7,Bar7]
+        method_accessor true
+        pc_and{
+          class_array [Foo7,Bar7]
+          method_arity 1
+        }
+      }
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(3).metodos
+
+  end
+
 
   it 'should OR 2 pointcuts' do
     aspect=crear aspecto{
@@ -193,6 +211,22 @@ describe 'DSL Aspect' do
     aspect.pointcut.should have(8).metodos
   end
 
+  it 'should OR 2 pointcuts reloaded' do
+    aspect=crear aspecto{
+      crear_punto_de_corte{
+        class_array [Foo7,Bar7]
+        method_accessor true
+        pc_or{
+          class_array [Foo7,Bar7]
+          method_arity 1
+        }
+      }
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:tomastee,:other,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(8).metodos
+  end
+
   it 'should Negate(NOT) a pointcut' do
     aspect=crear aspecto{
     punto_de_corte{
@@ -204,10 +238,32 @@ describe 'DSL Aspect' do
     aspect.pointcut.should have(6).metodos
 
     aspect=crear aspecto{
-    not_punto_de_corte{
-      class_array([Foo7,Bar7])
-      method_accessor(true)
+      not_punto_de_corte{
+        class_array([Foo7,Bar7])
+        method_accessor(true)
+      }
     }
+    #pointcut_not.metodos.map{|m| m.name}.should include(:tomastee,:other,:not_true,:not_false,:not_a_Foo_method,:another,:moisture,:multiply)
+    aspect.pointcut.metodos.map{|m| m.name}.should_not include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+  end
+
+  it 'should Negate(NOT) a pointcut reloaded' do
+    aspect=crear aspecto{
+      crear_punto_de_corte{
+        class_array([Foo7,Bar7])
+        method_accessor(true)
+      }
+    }
+    aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
+    aspect.pointcut.should have(6).metodos
+
+    aspect=crear aspecto{
+      crear_punto_de_corte{
+        pc_not{
+          class_array([Foo7,Bar7])
+          method_accessor(true)
+        }
+      }
     }
     #pointcut_not.metodos.map{|m| m.name}.should include(:tomastee,:other,:not_true,:not_false,:not_a_Foo_method,:another,:moisture,:multiply)
     aspect.pointcut.metodos.map{|m| m.name}.should_not include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
