@@ -250,8 +250,10 @@ describe 'DSL Aspect' do
   it 'should Negate(NOT) a pointcut reloaded' do
     aspect=crear aspecto{
       crear_punto_de_corte{
-        class_array([Foo7,Bar7])
-        method_accessor(true)
+        agregar{
+          class_array([Foo7,Bar7])
+          method_accessor(true)
+        }
       }
     }
     aspect.pointcut.metodos.map{|m| m.name}.should include(:joe7,:lara7,:mar7,:joe7=,:lara7=,:mar7=)
